@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>공통 에러 페이지</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}" href="../../css/style.css"></link>
+</head>
+<body>
+	<p>공통 에러 보여주는 페이지 - 원래는 각각의 에러에 맞는 페이지 따로 만들어야 함</p>
+	<p th:text="${exception}"></p>
+	<!--  원래는 아래같이 에러코드를 화면으로 보여주면 보안상 위험하다. 실제로는 각각의 에러에 맞게 따로 설정해서 화면 보여주기 -->
+	<ul th:each="list : ${exception.getStackTrace()}" th:text="${list.toString()}"></ul>
+</body>
+</html>
